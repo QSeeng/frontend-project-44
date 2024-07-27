@@ -25,15 +25,15 @@ const playPrimeGame = () => {
 		const correctAnswer = findPrimeNumber(num);
 		const userAnswer = readlineSync.question('Your Answer: ');
 		if (correctAnswer === userAnswer) {
-			console.log('correct!');
+			console.log('Correct!');
 			currentCount++;
 		} else {
-			console.log(`${userAnswer} is wrong answer ;(. correct answer is ${correctAnswer}`);
-			console.log(`Let's try again, ${userName}`);
+			console.log(`'${userAnswer}' is wrong answer ;(. correct answer is '${correctAnswer}'.`);
+			console.log(`Let's try again, ${userName}!`);
 			return;
 		}
 	}
-	console.log(`Congratulation, ${userName}!`);
+	console.log(`Congratulations, ${userName}!`);
 };
 
 export default playPrimeGame;
