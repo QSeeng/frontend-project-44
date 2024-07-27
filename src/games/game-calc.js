@@ -3,26 +3,32 @@ import {
 	getRandomInt, greetingUser, getRandomIndex
 } from '../index.js';
 
+const Calc = (operator1, operation, operator2) => {
+	let result;
+	switch (operation) {
+		case '+': result = operator1 + operator2;
+		break;
+		case '-': result = operator1 - operator2;
+		break;
+		case '*': result = operator1 * operator2;
+		break;
+	}
+	return result;
+}
+
 const playCalcGame = () => {
-	const userName = greetingUser();
-	console.log('What is the result of the expression?');
+	const textRule = 'What is the result of the expression?';
+	const userName = greetingUser(textRule);
 	let currentCount = 0;
+	
 	while (currentCount < 3) {
-		const operator = ['+', '-', '*'];
-		const num1 = getRandomInt();
-		const num2 = getRandomInt();
-		const randomOperator =  getRandomIndex(operator);
-		console.log(`Question: ${num1} ${randomOperator} ${num2}?`);
+		const operation = ['+', '-', '*'];
+		const operator1 = getRandomInt();
+		const operator2 = getRandomInt();
+		const randomOperation =  getRandomIndex(operation);
+		console.log(`Question: ${operator1} ${randomOperation} ${operator2}?`);
 		const userAnswer = readlineSync.question('Your answer: ');
-		let correctAnswer;
-		switch (randomOperator) {
-			case '+': correctAnswer = num1 + num2;
-			break;
-			case '-': correctAnswer = num1 - num2;
-			break;
-			case '*': correctAnswer = num1 * num2;
-			break;
-		}
+		const correctAnswer = Calc(operator1, randomOperation, operator2);
 		
 		if (Number(correctAnswer) === Number(userAnswer)) {
 			console.log('Correct!');
@@ -30,7 +36,7 @@ const playCalcGame = () => {
 		} else {
 			console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
 			console.log(`Let's try again, ${userName}!`);
-			currentCount = 0;
+			return;
 		}
 	}
 	console.log(`Congratulations, ${userName}!`);

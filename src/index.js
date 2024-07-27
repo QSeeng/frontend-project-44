@@ -1,18 +1,22 @@
 import readlineSync from 'readline-sync';
 
-const maxNum = 100;
 
-const greetingUser = () => {
+const greetingUser = (textRule) => {
 	console.log('Welcome to the Brain Games!');
-	const name = readlineSync.question('May I have your name?: ');
-	console.log(`Hello, ${name}!`);
-	return name;
+	const userName = readlineSync.question('May I have your name?: ');
+	console.log(`Hello, ${userName}!`);
+	console.log(textRule);
+	return userName;
 };
 
+const min = 1;
+const max = 100;
 
-const getRandomInt = (num = maxNum) => {
-	return Math.floor(Math.random() * num);
-};
+const getRandomInt = (minNum = min, maxNum = max) => {
+	minNum = Math.ceil(minNum);
+	maxNum = Math.floor(maxNum);
+	return Math.floor(Math.random() * (maxNum - minNum + 1)) + min;
+}
 
 
 const getRandomIndex = (array) => {
@@ -23,5 +27,5 @@ const getRandomIndex = (array) => {
 
 
 export {
-	greetingUser, getRandomInt, getRandomIndex
+	greetingUser, getRandomInt, getRandomIndex, 
 };

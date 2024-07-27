@@ -3,26 +3,27 @@ import {
 	getRandomInt, greetingUser
 } from '../index.js';
 
-const playParityCheck = () => {
-	const userName = greetingUser();
-	console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const playEvenGame = () => {
+	const textRule = ('Answer "yes" if the number is even, otherwise answer "no".');
+	const userName = greetingUser(textRule);
 	let currentCount = 0;
+
 	while (currentCount < 3) {
 		const num = getRandomInt();
 		console.log(`Question: ${num}`);
 		const correctAnswer = num % 2 === 0 ? 'yes' : 'no';
 		const userAnswer = readlineSync.question('Your answer: ');
 
-		if (correctAnswer === userAnswer) {
+		if (String(correctAnswer) === userAnswer) {
 			console.log('Correct!');
 			currentCount++;
 		} else {
 			console.log(`'${userAnswer}' is wrong answer ;(. correct answer is '${correctAnswer}'.`);
 			console.log(`Let's try again, ${userName}!`);
-			return 0;
+			return;
 		}
 	}
 	console.log(`Congratulations, ${userName}!`);
 };
 
-export default playParityCheck;
+export default playEvenGame;
