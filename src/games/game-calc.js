@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-	getRandomInt, greetingUser, getRandomIndex
+	getRandomInt, greetingUser, getRandomItem,
 } from '../index.js';
 
 const Calc = (operator1, operation, operator2) => {
@@ -25,7 +25,7 @@ const playCalcGame = () => {
 		const operation = ['+', '-', '*'];
 		const operator1 = getRandomInt();
 		const operator2 = getRandomInt();
-		const randomOperation =  getRandomIndex(operation);
+		const randomOperation =  getRandomItem(operation);
 		console.log(`Question: ${operator1} ${randomOperation} ${operator2}?`);
 		const userAnswer = readlineSync.question('Your answer: ');
 		const correctAnswer = Calc(operator1, randomOperation, operator2);

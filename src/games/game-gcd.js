@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-	getRandomInt, greetingUser
+	getRandomInt, greetingUser,
 } from '../index.js';
 
 const greatestCommonDivisor = (num1, num2) => {

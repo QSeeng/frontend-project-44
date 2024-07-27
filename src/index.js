@@ -19,13 +19,18 @@ const getRandomInt = (minNum = min, maxNum = max) => {
 }
 
 
-const getRandomIndex = (array) => {
+const getRandomItem = (array) => {
 	const index = Math.floor(Math.random() * array.length);
 	const randomItem = array[index];
 	return randomItem;
 };
 
+const getRandomIndex = (array) => {
+	const index = Math.floor(Math.random() * array.length);
+	return index;
+};
+
 
 export {
-	greetingUser, getRandomInt, getRandomIndex, 
+	greetingUser, getRandomInt, getRandomItem, getRandomIndex
 };
