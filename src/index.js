@@ -9,11 +9,19 @@ const greetingUser = () => {
 	return name;
 };
 
+
 const getRandomInt = (num = maxNum) => {
 	return Math.floor(Math.random() * num);
 };
 
 
+const getRandomIndex = (array) => {
+	const index = Math.floor(Math.random() * array.length);
+	const randomItem = array[index];
+	return randomItem;
+};
+
+
 export {
-	greetingUser, getRandomInt
+	greetingUser, getRandomInt, getRandomIndex
 };
