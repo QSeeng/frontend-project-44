@@ -14,12 +14,12 @@ const playParityCheck = () => {
 		const userAnswer = readlineSync.question('Your answer: ');
 
 		if (correctAnswer === userAnswer) {
-			currentCount++;
 			console.log('Correct!');
+			currentCount++;
 		} else {
 			console.log(`'${userAnswer}' is wrong answer ;(. correct answer is '${correctAnswer}'.`);
 			console.log(`Let's try again, ${userName}!`);
-			currentCount = 0;
+			return 0;
 		}
 	}
 	console.log(`Congratulations, ${userName}!`);
