@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import greetingUser from "../src/cls.js";
+import greetingUser from '../src/cls.js';
 
-//Launch game
+// Launch game
 greetingUser();
