@@ -5,13 +5,14 @@ import {
 
 const findPrimeNumber = (num) => {
   if (num > 1) {
-    for (let i = 2; i < num; i++) {
-      if (num % i == 0) {
+    for (let i = 2; i < num; i += 1) {
+      if (num % i === 0) {
         return 'no';
       }
     }
     return 'yes';
   }
+  return 0;
 };
 
 const playPrimeGame = () => {
@@ -26,7 +27,7 @@ const playPrimeGame = () => {
     const userAnswer = readlineSync.question('Your Answer: ');
     if (correctAnswer === userAnswer) {
       console.log('Correct!');
-      currentCount++;
+      currentCount += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. correct answer is '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);

@@ -16,7 +16,7 @@ const playEvenGame = () => {
 
     if (String(correctAnswer) === userAnswer) {
       console.log('Correct!');
-      currentCount++;
+      currentCount += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. correct answer is '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);

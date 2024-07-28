@@ -7,9 +7,9 @@ const createProgression = (array) => {
   const length = 10;
   const progression = [2, 3, 4];
   const randomProgression = getRandomItem(progression);
-
-  for (let i = 1; array.length < length; i++) {
-    array[i] = array[i - 1] + randomProgression;
+  const inArray = array;
+  for (let i = 1; inArray.length < length; i += 1) {
+    inArray[i] = inArray[i - 1] + randomProgression;
   }
   return array;
 };
@@ -30,7 +30,7 @@ const playProgressionGame = () => {
 
     if (Number(correctAnswer) === Number(userAnswer)) {
       console.log('Correct!');
-      currentCount++;
+      currentCount += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. correct answer is '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);

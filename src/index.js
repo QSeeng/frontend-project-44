@@ -8,13 +8,12 @@ const greetingUser = (textRule) => {
   return userName;
 };
 
-const min = 1;
-const max = 100;
-
-const getRandomInt = (minNum = min, maxNum = max) => {
-  minNum = Math.ceil(minNum);
-  maxNum = Math.floor(maxNum);
-  return Math.floor(Math.random() * (maxNum - minNum + 1)) + min;
+const getRandomInt = () => {
+  const minNum = 1;
+  const maxNum = 100;
+  Math.ceil(minNum);
+  Math.floor(maxNum);
+  return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 };
 
 const getRandomItem = (array) => {

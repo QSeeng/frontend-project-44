@@ -3,17 +3,19 @@ import {
   getRandomInt, greetingUser,
 } from '../index.js';
 
-const greatestCommonDivisor = (num1, num2) => {
-  let result;
-
-  while (num1 != 0 & num2 != 0) {
+const greatestCommonDivisor = (number1, number2) => {
+  const num1 = number1;
+  const num2 = number2;
+  let result1;
+  let result2;
+  while (num1 !== 0 && num2 !== 0) {
     if (num1 > num2) {
-      num1 %= num2;
+      result1 = num1 % num2;
     } else {
-      num2 %= num1;
+      result2 = num2 % num1;
     }
   }
-  result = num1 + num2;
+  const result = result1 + result2;
   return result;
 };
 
@@ -31,7 +33,7 @@ const playGreatestCommonDivisor = () => {
 
     if (Number(correctAnswer) === Number(userAnswer)) {
       console.log('Correct!');
-      currentCount++;
+      currentCount += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. correct answer is '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);

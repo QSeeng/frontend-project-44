@@ -12,6 +12,7 @@ const Calc = (operator1, operation, operator2) => {
       break;
     case '*': result = operator1 * operator2;
       break;
+    default:
   }
   return result;
 };
@@ -32,7 +33,7 @@ const playCalcGame = () => {
 
     if (Number(correctAnswer) === Number(userAnswer)) {
       console.log('Correct!');
-      currentCount++;
+      currentCount += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
