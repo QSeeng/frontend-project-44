@@ -1,7 +1,8 @@
-import readlineSync from 'readline-sync';
 import {
-  greetingUser, getRandomInt,
+  getRandomInt, launchGame,
 } from '../index.js';
+
+const textRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const findPrimeNumber = (num) => {
   if (num > 1) {
@@ -15,26 +16,14 @@ const findPrimeNumber = (num) => {
   return 0;
 };
 
-const playPrimeGame = () => {
-  const textRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const userName = greetingUser(textRule);
-  let currentCount = 0;
+const getQuestionAndAnswer = () => {
+  const question = getRandomInt();
+  const correctAnswer = findPrimeNumber(question);
+  return [question, correctAnswer];
+};
 
-  while (currentCount < 3) {
-    const num = getRandomInt();
-    console.log(`Question: ${num}`);
-    const correctAnswer = findPrimeNumber(num);
-    const userAnswer = readlineSync.question('Your Answer: ');
-    if (correctAnswer === userAnswer) {
-      console.log('Correct!');
-      currentCount += 1;
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. correct answer is '${correctAnswer}'.`);
-      console.log(`Let's try again, ${userName}!`);
-      return;
-    }
-  }
-  console.log(`Congratulations, ${userName}!`);
+const playPrimeGame = () => {
+  launchGame(textRule, getQuestionAndAnswer);
 };
 
 export default playPrimeGame;

@@ -1,7 +1,8 @@
-import readlineSync from 'readline-sync';
 import {
-  greetingUser, getRandomIndex, getRandomInt, getRandomItem,
+  getRandomIndex, getRandomInt, getRandomItem, launchGame,
 } from '../index.js';
+
+const textRule = 'What number is missing in the progression?';
 
 const createProgression = (array) => {
   const length = 10;
@@ -14,30 +15,17 @@ const createProgression = (array) => {
   return array;
 };
 
-const playProgressionGame = () => {
-  const textRule = 'What number is missing in the progression?';
-  const userName = greetingUser(textRule);
-  let currentCount = 0;
-
-  while (currentCount < 3) {
-    const randomNumber = getRandomInt();
-    const array = [randomNumber];
-    createProgression(array);
-    const randomItem = getRandomIndex(array);
-    const correctAnswer = array.splice(randomItem, 1, '..');
-    console.log(`Question: ${array.join(' ')}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-
-    if (Number(correctAnswer) === Number(userAnswer)) {
-      console.log('Correct!');
-      currentCount += 1;
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. correct answer is '${correctAnswer}'.`);
-      console.log(`Let's try again, ${userName}!`);
-      return;
-    }
-  }
-  console.log(`Congratulations, ${userName}!`);
+const getQuestionAndAnswer = () => {
+  const randomNumber = getRandomInt();
+  const array = [randomNumber];
+  createProgression(array);
+  const randomItem = getRandomIndex(array);
+  const correctAnswer = array.splice(randomItem, 1, '..');
+  const question = `${array.join(' ')}`;
+  return [question, String(correctAnswer)];
 };
 
+const playProgressionGame = () => {
+  launchGame(textRule, getQuestionAndAnswer);
+};
 export default playProgressionGame;
