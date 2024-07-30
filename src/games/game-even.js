@@ -1,5 +1,5 @@
-import getRandomInt from "../random-number.js";
-import launchGame from "../index.js";
+import getRandomInt from '../random-number.js';
+import launchGame from '../index.js';
 
 const textRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
