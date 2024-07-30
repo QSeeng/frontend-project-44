@@ -1,14 +1,13 @@
-import {
-  getRandomInt, launchGame,
-} from '../index.js';
+import getRandomInt from "../random-number.js";
+import launchGame from "../index.js";
 
 const textRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const evenNumber = (num) => num % 2 === 0;
+const isEvenNumber = (num) => num % 2 === 0;
 
 const getQuestionAndAnswer = () => {
   const question = getRandomInt();
-  const correctAnswer = evenNumber(question) ? 'yes' : 'no';
+  const correctAnswer = isEvenNumber(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 

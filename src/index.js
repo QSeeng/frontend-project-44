@@ -27,25 +27,4 @@ const launchGame = (textRule, getQuestionAndAnswer) => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-const getRandomInt = () => {
-  const minNum = 1;
-  const maxNum = 100;
-  Math.ceil(minNum);
-  Math.floor(maxNum);
-  return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-};
-
-const getRandomItem = (array) => {
-  const index = Math.floor(Math.random() * array.length);
-  const randomItem = array[index];
-  return randomItem;
-};
-
-const getRandomIndex = (array) => {
-  const index = Math.floor(Math.random() * array.length);
-  return index;
-};
-
-export {
-  getRandomInt, getRandomItem, getRandomIndex, launchGame,
-};
+export default launchGame;

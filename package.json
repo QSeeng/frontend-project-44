@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/QSeeng/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/QSeeng/frontend-project-44/actions)",
+  "description": "Учебный проект по JS - Brain Games",
   "bin": {
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
@@ -10,7 +10,7 @@
     "brain-prime": "bin/brain-prime.js",
     "brain-progression": "bin/brain-progression.js"
   },
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
